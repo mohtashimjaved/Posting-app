@@ -1,0 +1,347 @@
+/* ========== Root Variables ========== */
+:root {
+    --primary: #005eff;
+    --success: #28a745;
+    --danger: #dc3545;
+    --light: #f9f9f9;
+    --gray: #ccc;
+    --text: #333;
+    --radius: 12px;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========== Reset & Base Styles ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--light);
+    color: var(--text);
+    padding: 2rem 1rem;
+    line-height: 1.6;
+}
+
+/* ========== Heading ========== */
+.heading_container {
+    text-align: center;
+    background: var(--primary);
+    color: white;
+    padding: 3rem 1rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 15px var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.heading_container h1 {
+    font-size: 2.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.heading_container h2 {
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+/* ========== Main Wrapper ========== */
+.main_container {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    border-radius: var(--radius);
+    padding: 2rem 2.5rem;
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+/* ========== Post Creator ========== */
+.html > div:first-child h1 {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    color: #222;
+}
+
+/* Username Input */
+.input_container {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.input_container img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+.input_container input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--gray);
+    border-radius: 8px;
+    transition: border-color 0.3s;
+}
+
+.input_container input:focus {
+    border-color: var(--primary);
+}
+
+/* Textarea */
+.textarea_div textarea {
+    width: 100%;
+    min-height: 180px;
+    font-size: 1.1rem;
+    padding: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid var(--gray);
+    background-size: cover;
+    background-position: center;
+    resize: vertical;
+    transition: border 0.3s;
+}
+
+.textarea_div textarea:focus {
+    border-color: var(--primary);
+}
+
+/* Image Selector */
+.img_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+
+.img_container img {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.img_container img:hover {
+    transform: scale(1.03);
+    border-color: var(--primary);
+}
+
+#deleteImg {
+    grid-column: span 1;
+    background: var(--danger);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: background-color 0.3s;
+}
+
+#deleteImg:hover {
+    background-color: #b02a37;
+}
+
+/* Post Button */
+.post_btn_div {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.post_btn {
+    background-color: var(--success);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.post_btn:hover {
+    background-color: #1c7c31;
+}
+
+/* ========== Created Post ========== */
+#createdPost {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 16px var(--shadow);
+    margin-top: 2.5rem;
+    padding: 1.8rem;
+}
+
+/* Post Header */
+.postHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border: 2px solid #ccc; */
+}
+
+.name&time h1 {
+    margin: 0;
+    font-size: 5px;
+    color: #555;
+}
+
+#deletePost {
+    font-size: 1.3rem;
+    color: var(--danger);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#deletePost:hover {
+    color: #a22030;
+}
+
+/* Post Body */
+.post_main {
+    margin-top: 1.2rem;
+    padding: 1.2rem;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--light);
+    border: 1px solid var(--gray);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.post_main p {
+    margin: 0;
+    font-size: 50px;
+    color: white;
+}
+
+/* Post Footer */
+.post_foot {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.post_foot div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #555;
+    transition: color 0.3s;
+}
+
+.post_foot div:hover {
+    color: var(--primary);
+}
+
+/* Comment Input */
+#comment_input {
+    margin-top: 1.5rem;
+    display: flex;
+    display: none;
+    gap: 0.8rem;
+}
+
+#comment_input input {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--gray);
+}
+
+#commented {
+    padding: 0.6rem;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#commented:hover {
+    background-color: #0042b4;
+}
+
+/* Posted Comments */
+#commentPost {
+    margin-top: 1rem;
+}
+
+#commentPost > div {
+    background-color: #e9ecef;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    margin-top: 0.5rem;
+    position: relative;
+}
+
+.comment_user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.comment_user img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#bin {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    color: var(--danger);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 600px) {
+    .main_container {
+        padding: 1.2rem;
+    }
+
+    .input_container img,
+    .user img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .heading_container h1 {
+        font-size: 2rem;
+    }
+
+    .img_container {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}
