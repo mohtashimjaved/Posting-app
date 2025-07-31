@@ -3,13 +3,13 @@ let text = "";
 let imgId = "";
 
 
-
-document.getElementById("post_text").focus()
+ 
+let username;
+let currentDate = moment().format("DD-MMM-YYYY hh:mm A");
+// document.getElementById("post_text").focus()
 function post() {
-    let currentDate = moment().format("DD-MMM-YYYY hh:mm A");
-    let username;
     if (document.getElementById("username").value !== "") {
-
+    
         username = document.getElementById("username").value;
     } else {
         username = "Anonymous"
@@ -24,9 +24,9 @@ function post() {
             <div class="postHead">
             <div class="user">
             <img src="./assets/user-3296.png" alt="">
-            <div class="name&time">
+            <div class="name_time">
             <h1>${username}</h1>
-            <h1>${currentDate}</h1>
+            <h2>${currentDate}</h2>
                     </div>
                     </div>
                     <i class="fa-solid fa-trash" onclick="deletePost()" id="deletePost"></i>
@@ -37,21 +37,23 @@ function post() {
                         </p>
                         </div>
                         <div class="post_foot">
-                        <div id="like${imgId}" >
-                        <i class="fa-regular fa-thumbs-up" onclick="like(${imgId})"></i>
-                        <p onclick="like(${imgId})">Like</p>
+                        <div onclick="like(${imgId})" id="like${imgId}" >
+                        <i class="fa-regular fa-thumbs-up">
+                        </i>
+                        <p>Like</p>
                         </div>
                         <div class="comment">
-                    <i onclick="comment()" class="fa-regular fa-comment"></i>
-                    <p onclick="comment()">Comment</p>
+                    <i onclick="comment(${imgId})" class="fa-regular fa-comment"></i>
+                    <p onclick="comment(${imgId})">Comment</p>
                     </div>
                     
                     </div>
-                    <div id="comment_input">
+                    <div id="comment_input${imgId}" class="comment_input">
                     <input type="text" id="comment_text" placeholder="Write a comment...">
                     <i onclick="commented()" id="commented" class="fa-solid fa-paper-plane comm_icon"></i>
                     </div>
                     <div id="commentPost">
+                    
                     </div>
                     </div>
                     `
@@ -61,9 +63,10 @@ function post() {
         }
     } else {
         alert("Post cannot be posted empty")
+        // imgId = 1
     }
-    imgId = "";
-    document.getElementById("post_text").focus();
+    imgId = "" ;
+    // document.getElementById("post_text").focus();
     document.getElementById("post_text").style.backgroundImage = "";
     document.getElementById("username").value = "";
     
@@ -72,7 +75,7 @@ function post() {
         //     divPos.style.height = 250 + "px"
         //     divPos.style.fontSize = 32 + "px"
         // }
-        // return username
+        // return currentDate;
         
     }
     function backgroundImg(i) {
@@ -108,14 +111,16 @@ function like() {
         //     }
         // }
     }
-function commented() {
-    let username;
-    if (document.getElementById("username").value !== "") {
+    // console.log(username);
     
-        username = document.getElementById("username").value;
-    } else {
-        username = "Anonymous"
-    }
+function commented() {
+    // let username;
+    // if (document.getElementById("username").value !== "") {
+    
+    //     username = document.getElementById("username").value;
+    // } else {
+    //     username = "Anonymous"
+    // }
     const commentText = event.target.previousElementSibling.value;
     const commentList = event.target.parentNode.nextElementSibling;
     if (commentText !== ""){
@@ -125,16 +130,20 @@ function commented() {
         <div>
         <div class="comment_user">
         <img src="./assets/user-3296.png" alt="">
-        ${username}
-        
+        <div class="username">
+        <h1>${username}</h1>
+        <h2>${currentDate}</h2>
+        </div>
         </div>
             <p>${commentText}</p><i onclick="deleteComment()" id="bin" class="fa-solid fa-trash"></i>
         </div>
+        
             `;
-            console.log(username);
+            // console.log(username);
             
     }
-    event.target.previousElementSibling.focus();
+    event.target.parentNode.style.display = "none";
+
 
 }
 function deleteComment(){
@@ -145,5 +154,7 @@ function removeBgImg(){
 
 }
 function comment(){
-    const commentInput = document.getElementById("comment_input").style.display = "block"
+    event.target.parentNode.parentNode.nextElementSibling.style.display = "flex"
+    // let commentInput = document.getElementById("comment_input" + imgId).style.display = "block"
+    document.getElementById("comment_text").focus()
 }
